@@ -65,7 +65,7 @@ function FloatingPetals() {
       return;
     }
 
-    const colors = ["#fde047", "#fef08a", "#8c6b2b", "#d4af37", "#fef08a"];
+    const colors = ["#fbcfe8", "#f9a8d4", "#f472b6", "#ec4899", "#fbcfe8"];
     const petalCount = isMobile ? 10 : 18;
 
     const newPetals = Array.from({ length: petalCount }).map((_, i) => ({
@@ -412,7 +412,7 @@ export default function WeddingInvitation() {
                     transition={{ duration: 2, delay: 1.4 }}
                     className="text-2xl md:text-5xl text-[#c5a059] tracking-[0.25em] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]"
                   >
-                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span> & <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
+                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span> & <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
                   </motion.h3>
                 </motion.div>
 
@@ -468,7 +468,7 @@ export default function WeddingInvitation() {
                   className="mt-10"
                 >
                   <h1 className="text-[3.25rem] leading-none sm:text-7xl md:text-8xl text-[#8c6b2b] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
-                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
+                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
                   </h1>
 
                   <div className="mt-4 md:mt-6 flex items-center justify-center gap-3 md:gap-5">
@@ -478,7 +478,7 @@ export default function WeddingInvitation() {
                   </div>
 
                   <h1 className="mt-4 md:mt-6 text-[3.25rem] leading-none sm:text-7xl md:text-8xl text-[#8c6b2b] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
-                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
+                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
                   </h1>
                 </motion.div>
 
@@ -553,17 +553,17 @@ export default function WeddingInvitation() {
 
                       <div className="flex flex-col items-center justify-center gap-2">
                         <span className="text-sm md:text-base tracking-wider text-slate-700">
-                          පී. සමන්ත මැතිතුමාගේ සහ ඊ. පුෂ්පලතා මැතිනියගේ ආදරණීය දියණිය
-                        </span>
-                        <span className="text-xl md:text-2xl font-bold text-[#d4af37] my-1">
-                          {INVITATION.couple.brideFull}
-                        </span>
-                        <span className="text-2xl text-[#d4af37] italic my-2"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">With</span><span className="leading-none">සමඟ</span></span></span>
-                        <span className="text-sm md:text-base tracking-wider text-slate-700">
                           එච්. කේ. ජී. නිමල් රාජපක්ෂ මැතිතුමාගේ සහ ඒ. ජී. ආරියවතී මැතිනියගේ ආදරණීය පුතණුවන්
                         </span>
                         <span className="text-xl md:text-2xl font-bold text-[#d4af37] my-1">
                           {INVITATION.couple.groomFull}
+                        </span>
+                        <span className="text-2xl text-[#d4af37] italic my-2"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">With</span><span className="leading-none">සමඟ</span></span></span>
+                        <span className="text-sm md:text-base tracking-wider text-slate-700">
+                          පී. සමන්ත මැතිතුමාගේ සහ ඊ. පුෂ්පලතා මැතිනියගේ ආදරණීය දියණිය
+                        </span>
+                        <span className="text-xl md:text-2xl font-bold text-[#d4af37] my-1">
+                          {INVITATION.couple.brideFull}
                         </span>
                       </div>
                     </div>
@@ -601,7 +601,7 @@ export default function WeddingInvitation() {
                     <div className="space-y-5 mb-10">
                       <div className="flex flex-col items-center gap-2">
                         <h3 className="text-5xl md:text-7xl text-[#d4af37] leading-none">
-                          <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
+                          <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
                         </h3>
                       </div>
                     </div>
@@ -618,7 +618,7 @@ export default function WeddingInvitation() {
                     <div className="space-y-5 mt-10">
                       <div className="flex flex-col items-center gap-2">
                         <h3 className="text-5xl md:text-7xl text-[#d4af37] leading-none">
-                          <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
+                          <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
                         </h3>
                       </div>
                     </div>
