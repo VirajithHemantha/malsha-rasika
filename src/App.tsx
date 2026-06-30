@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, MapPin, Calendar, Clock, Send, ChevronDown } from "lucide-react";
+import { IntroVideo } from "./components/IntroVideo";
 
 const INVITATION = {
   couple: {
@@ -211,7 +212,6 @@ export default function WeddingInvitation() {
   const [wishStatus, setWishStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const audioRef = React.useRef<HTMLAudioElement>(null);
-  const introVideoRef = React.useRef<HTMLVideoElement>(null);
 
   const submitToGoogleSheet = async (payload: Record<string, string>) => {
     if (!googleScriptUrl) {
@@ -330,19 +330,7 @@ export default function WeddingInvitation() {
             exit={{ opacity: 0, transition: { duration: 1.2 } }}
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center overflow-hidden"
           >
-            <video
-              ref={introVideoRef}
-              src="/Bride_and_groom_walking_garden_202606021456.mp4"
-              muted={!hasStarted}
-              playsInline
-              preload="auto"
-              className={`w-full h-full object-cover transition-all duration-[2000ms] ease-out ${!hasStarted ? "blur-xl scale-110 opacity-60" : "blur-0 scale-100 opacity-100"
-                }`}
-              onEnded={() => setIsOpened(true)}
-              onError={() => setIsOpened(true)}
-            />
-
-            {!hasStarted && (
+            {!hasStarted ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center z-[120] bg-black/40 backdrop-blur-[2px]">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -361,15 +349,7 @@ export default function WeddingInvitation() {
                   </motion.div>
 
                   <button
-                    onClick={() => {
-                      setHasStarted(true);
-
-                      if (introVideoRef.current) {
-                        introVideoRef.current.muted = false;
-                        introVideoRef.current.currentTime = 0;
-                        introVideoRef.current.play();
-                      }
-                    }}
+                    onClick={() => setHasStarted(true)}
                     className="group relative px-12 py-5 overflow-hidden rounded-full transition-all duration-500 hover:scale-105 active:scale-95"
                   >
                     <div className="absolute inset-0 bg-[#8c6b2b] opacity-90 group-hover:opacity-100 transition-opacity" />
@@ -389,42 +369,8 @@ export default function WeddingInvitation() {
                   </motion.div>
                 </motion.div>
               </div>
-            )}
-
-            {hasStarted && (
-              <>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, delay: 0.5 }}
-                  className="absolute inset-0 flex flex-col items-center justify-start pt-16 md:pt-24 z-[105] pointer-events-none text-center px-6"
-                >
-                  <motion.h2
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 2, delay: 0.8 }}
-                    className="text-4xl md:text-7xl text-[#c5a059] mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] font-bold"
-                  ><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Wedding Invitation</span><span className="leading-none">විවාහ ආරාධනය</span></span></motion.h2>
-
-                  <motion.h3
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 2, delay: 1.4 }}
-                    className="text-2xl md:text-5xl text-[#c5a059] tracking-[0.25em] font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]"
-                  >
-                    <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span> & <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
-                  </motion.h3>
-                </motion.div>
-
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  onClick={() => setIsOpened(true)}
-                  className="absolute bottom-10 right-10 z-[110] px-8 py-3 bg-white backdrop-blur-md text-[#8c6b2b] text-[11px] tracking-[0.35em] rounded-full border border-[#8c6b2b]/20 shadow-xl hover:bg-gray-50 transition-all font-extrabold"
-                >
-                  ආරාධනයට පිවිසෙන්න
-                </motion.button>
-              </>
+            ) : (
+              <IntroVideo onComplete={() => setIsOpened(true)} />
             )}
           </motion.div>
         ) : (
