@@ -298,7 +298,7 @@ export default function WeddingInvitation() {
   };
 
   useEffect(() => {
-    if (isOpened && !isPlaying && !hasAttemptedAutoplay && audioRef.current) {
+    if (!isPlaying && !hasAttemptedAutoplay && audioRef.current) {
       setHasAttemptedAutoplay(true);
 
       audioRef.current
@@ -320,7 +320,7 @@ export default function WeddingInvitation() {
           window.addEventListener("click", playOnInteraction);
         });
     }
-  }, [isOpened, isPlaying, hasAttemptedAutoplay]);
+  }, [isPlaying, hasAttemptedAutoplay]);
 
   return (
     <main
@@ -339,9 +339,15 @@ export default function WeddingInvitation() {
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center overflow-hidden"
           >
             {!hasStarted ? (
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-[120] bg-black/40 backdrop-blur-[2px]">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+              <>
+                <img 
+                  src="/WhatsApp Image 2026-07-01 at 14.47.02.jpeg" 
+                  alt="Welcome Background" 
+                  className="absolute inset-0 w-full h-full object-cover z-[110]" 
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-[120] bg-black/30">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.5 }}
                   className="text-center"
@@ -349,7 +355,7 @@ export default function WeddingInvitation() {
                   <motion.div
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="mb-12"
+                    className="mb-12 -translate-y-32 md:translate-y-0"
                   >
                     <h2 className="text-4xl md:text-6xl text-white mb-2 drop-shadow-2xl">
                       <span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Wedding Ceremony</span><span className="leading-none">විවාහ මංගල්‍යය</span></span>
@@ -376,7 +382,8 @@ export default function WeddingInvitation() {
                     ආරම්භ කිරීමට ක්ලික් කරන්න
                   </motion.div>
                 </motion.div>
-              </div>
+                </div>
+              </>
             ) : (
               <IntroVideo onComplete={() => setIsOpened(true)} />
             )}
@@ -442,13 +449,13 @@ export default function WeddingInvitation() {
                 </p>
                 
                 <h1 className="font-display font-light italic leading-[0.95] tracking-wide mt-10" style={{ fontSize: "clamp(2.4rem, 10vw, 5.5rem)", color: "#FFFFFF", textShadow: "0 2px 48px rgba(0,0,0,0.45), 0 0 80px #F5EDD01f", overflowWrap: "break-word", wordBreak: "break-word", maxWidth: "100%" }}>
-                  <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
+                  <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
                 </h1>
                 <p className="font-serif leading-none select-none" style={{ fontSize: "clamp(3.5rem, 13vw, 6.5rem)", color: "#E8C547", textShadow: "0 0 72px rgba(232,197,71,0.4), 0 0 120px #F5EDD02e", margin: "0.05em 0" }}>
                   <span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">&</span><span className="leading-none">සහ</span></span>
                 </p>
                 <h1 className="font-display font-light italic leading-[0.95] tracking-wide" style={{ fontSize: "clamp(2.4rem, 10vw, 5.5rem)", color: "#FFFFFF", textShadow: "0 2px 48px rgba(0,0,0,0.45), 0 0 80px #F5EDD01f", overflowWrap: "break-word", wordBreak: "break-word", maxWidth: "100%" }}>
-                  <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
+                  <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
                 </h1>
                 
                 <div className="mt-9 sm:mt-11 mb-6 sm:mb-7 flex items-center gap-3 w-full max-w-[14rem]">
@@ -838,7 +845,7 @@ export default function WeddingInvitation() {
                   </p>
 
                   <p className="text-[10px] md:text-xs tracking-[0.5em] text-[#D4AF37]/50 font-bold">
-                    © 2026 <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span> සහ <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span>
+                    © 2026 <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Nuwan</span><span>{INVITATION.couple.groom}</span></span> සහ <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Malsha</span><span>{INVITATION.couple.bride}</span></span>
                   </p>
                   
                   <p className="text-[8px] md:text-[10px] tracking-[0.3em] text-[#D4AF37]/40 font-medium font-sans uppercase pt-4">
